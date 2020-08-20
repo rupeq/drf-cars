@@ -7,7 +7,7 @@ User = get_user_model()
 
 class Cars(models.Model):
     car_brand = models.CharField(max_length=64)
-    number = models.IntegerField(unique=True, db_index=True)
+    number = models.CharField(max_length=100)
     color = models.CharField(max_length=64)
     property = [
         (1, 'Sedan'),

@@ -1,14 +1,12 @@
 from rest_framework import serializers
 from .models import Cars
 
-class CreateSerializer(serializers.ModelSerializer):
+class CarSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Cars
         fields = '__all__'
 
-class ListSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
-    class Meta:
-        model = Cars
-        exclude = ('id', )
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        return data

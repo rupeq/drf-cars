@@ -4,6 +4,7 @@ from .views import *
 
 app_name = 'cars'
 urlpatterns = [
-    path('cars/', CarViewCreate.as_view()),
-    path('cars/<int:pk>', CarDetailView.as_view()),
+    path('cars/', CarView.as_view()),
+    path('cars/create/', CarCreate.as_view()),
+    path('cars/<int:id>/', CarRetrieveUpdateDestroy.as_view()),
 ]
